@@ -15,7 +15,7 @@
 <body>
 <div id="app">
     <header-component></header-component>
-    
+    <router-view></router-view>
 </div>
 
 <!-- 最初からVue.jsが入っている。 -->

@@ -6,6 +6,12 @@
 
 require('./bootstrap');
 
+import VueRouter from 'vue-router';
+import HeaderComponent from "./components/HeaderComponent";
+import TaskListComponent from "./components/TaskListComponent";
+import TaskShowComponent from "./components/TaskShowComponent";
+import TaskCreateComponent from "./components/TaskCreateComponent";
+
 window.Vue = require('vue');
 
 /**
@@ -19,9 +25,33 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-import HeaderComponent from "./components/HeaderComponent";
+Vue.use(VueRouter);
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+var router = new VueRouter({
+    mode: 'history',
+    routes: [{
+            path: '/tasks',
+            name: 'task.list',
+            component: TaskListComponent,
+        },
+        {
+            path: '/tasks/:taskId',
+            name: 'task.show',
+            component: TaskShowComponent,
+            props: true,
+        },
+        {
+            path: '/tasks/create',
+            name: 'task.create',
+            component: TaskCreateComponent,
+        },
+    ]
+})
+
+
+
+
+
 
 Vue.component('header-component', HeaderComponent);
 /**
@@ -32,4 +62,5 @@ Vue.component('header-component', HeaderComponent);
 
 const app = new Vue({
     el: '#app',
+    router
 });
