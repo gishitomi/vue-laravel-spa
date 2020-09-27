@@ -21,7 +21,9 @@
           </router-link>
         </th>
         <th scope="col">
+          <router-link v-bind:to="{name: 'task.edit', params: {taskId: 1}}">
           <button class="btn btn-success">Edit</button>
+          </router-link>
         </th>
         <th scope="col">
           <button class="btn btn-danger">Delete</button>
@@ -38,7 +40,9 @@
           </router-link>
         </th>
         <th scope="col">
+          <router-link v-bind:to="{name: 'task.edit', params: {taskId: 2}}">
           <button class="btn btn-success">Edit</button>
+          </router-link>
         </th>
         <th scope="col">
           <button class="btn btn-danger">Delete</button>
