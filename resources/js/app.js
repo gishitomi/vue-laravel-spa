@@ -11,6 +11,7 @@ import HeaderComponent from "./components/HeaderComponent";
 import TaskListComponent from "./components/TaskListComponent";
 import TaskShowComponent from "./components/TaskShowComponent";
 import TaskCreateComponent from "./components/TaskCreateComponent";
+import TaskEditComponent from "./components/TaskEditComponent";
 
 window.Vue = require('vue');
 
@@ -44,6 +45,12 @@ var router = new VueRouter({
             path: '/tasks/create',
             name: 'task.create',
             component: TaskCreateComponent,
+        },
+        {
+            path: '/tasks/edit/:taskId',
+            name: 'task.edit',
+            component: TaskEditComponent,
+            props: true,
         },
     ]
 })
